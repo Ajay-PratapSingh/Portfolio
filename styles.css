@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@900&family=Merriweather+Sans:wght@800&display=swap');
+
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(203, 203, 203);
+  overflow-y: scroll;
+  margin: 0;
+}
+
+.about{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: fit-content;
+  padding: 30px;
+  border-radius:15px;
+  background-color: yellow;
+}
+
+.pfp {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height:90%;
+  background-color: yellow;
+}
+
+.proj-des{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  align-items: center;
+}
+.proj-des-right{
+  width: 90%;
+  display: flex;
+  flex-direction:row-reverse;
+  margin: 20px;
+  align-items: center;
+}
+
+
+.proj-img-area{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+  height: fit-content;
+  border-radius:15px;
+  padding: 30px;
+}
+
+.square {
+  height: 40px;
+  width: 150px;
+  background-color:yellow;
+}
+
+.des {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.view {
+  width: 70vw;
+  height: fit-content;
+  margin: 30px;
+  padding:30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 12px 10px 40px #7a7a7a;
+}
+
+.header {
+  color: rgb(0, 0, 0);
+  font-size: 80px;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  margin: 20px;
+}
+
+.heading {
+  color: rgb(0, 0, 0);
+  font-size: 80px;
+  font-weight: bold;
+  font-family: 'Archivo', sans-serif;
+}
+
+.footer {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 6px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.subtext {
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 10px;
+}
+
+.button-54 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 5px;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+}
+
+.skill-badge {
+  width: 70px;
+  margin: 20px;
+  animation: levitate 3s infinite;
+}
+
+
+.container {
+  position: relative;
+  background: radial-gradient(at center top, #374151, #061322, #010204);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.textbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+  width: 100%;
+  background: #07252D;
+}
+
+.text{
+  position: relative;
+  font-size: 6em;
+  letter-spacing: 15px;
+  text-transform: uppercase;
+  width: 100%;
+  color: #0E3742;
+  text-align: center;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #000800);
+  line-height: 0.70em;
+  outline: none;
+  animation: anime 5s linear infinite;
+  font-weight: bold;
+  letter-spacing: 6px;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+@keyframes anime {
+
+  0%,
+  18%,
+  20%,
+  50.1%,
+  60%,
+  65.1%,
+  80%,
+  90.1%,
+  92% {
+      color: #0E3742;
+      text-shadow: none;
+  }
+
+  18.1%,
+  20.1%,
+  30%,
+  50%,
+  60.1%,
+  65%,
+  80.1%,
+  90%,
+  92.1%,
+  100% {
+      color: #FFF;
+      text-shadow: 0 0 10px #03BCF4,
+          0 0 20px #03BCF4,
+          0 0 40px #03BCF4,
+          0 0 80px #03BCF4,
+          0 0 160px #03BCF4;
+  }
+}
+
+
+@keyframes levitate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .proj-des{
+    flex-direction: column;
+  }
+  .proj-des-right{
+    flex-direction: column;
+  }
+  .about{
+    flex-direction: column;
+    height: fit-content;
+  }
+  .header{
+    padding: 30px;
+  }
+  .footer{
+    font-size: 12px;
+    letter-spacing:3px;
+  }
+  .text{
+    font-size:3em;
+  }
+  .textbox{
+    min-height:20vh;
+  }
+}
