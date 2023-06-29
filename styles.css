@@ -240,7 +240,7 @@ body {
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 400px) {
   .proj-des{
     flex-direction: column;
   }
@@ -255,7 +255,7 @@ body {
     padding: 30px;
   }
   .footer{
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing:3px;
   }
   .text{
@@ -263,5 +263,9 @@ body {
   }
   .textbox{
     min-height:20vh;
+  }
+  .header{
+    text-align: center;
+    margin-right:0;
   }
 }
