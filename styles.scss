@@ -1,0 +1,354 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #000000;
+
+$breakpoint-tablet: 768px;
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+
+    // For Google Chrome
+    &::-webkit-scrollbar {
+        width: $size;
+        height: $size;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $foreground-color;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $background-color;
+    }
+
+    // For Internet Explorer
+    & {
+        scrollbar-face-color: $foreground-color;
+        scrollbar-track-color: $background-color;
+    }
+}
+
+
+@mixin flex($fd: column, $alignment: flex-start) {
+    display: flex;
+    flex-direction: $fd;
+    align-items: $alignment;
+}
+
+body {
+    @include scrollbars(10px, #2e2e2e, #444444);
+    font: 100% $font-stack;
+    color: $primary-color;
+    background-color: #060606;
+    color: #ffffff;
+    margin: 0 0 0 0;
+    padding: 0 4% 0 4%;
+
+    h1 {
+        text-transform: capitalize;
+        font-size: 70px;
+        font-weight: 100;
+        margin: 1% 0 2% 0;
+    }
+
+    h2 {
+        font-size: 40px;
+        font-weight: 100;
+    }
+
+    p {
+        color: #ffffff;
+        font-size: 20px;
+    }
+}
+
+
+header {
+    @include flex;
+
+    height: 100vh;
+
+    h1 {
+        margin: 10% 0 0 0;
+        font-size: 150px;
+        width: 100%;
+    }
+}
+
+.long_banner {
+    @include flex(row);
+    height: fit-content;
+    background-image: radial-gradient(circle 815px at 23.4% -21.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%);
+    border-radius: 20px;
+    padding: 2%;
+    margin-bottom: 1%;
+
+    h2,
+    p {
+        color: rgb(204, 204, 204);
+    }
+
+    img {
+        width: 50%;
+        border-radius: 2%;
+        animation: cssAnimation_0 1571ms ease-in-out 4ms;
+    }
+
+}
+
+section {
+    @include flex;
+    margin: 0 0 1% 0;
+    min-height: 100vh;
+    max-height: fit-content;
+
+    /*:hover {
+        transform: perspective(1000px) rotateX(20deg);
+        transition: 0.5s;
+    }*/
+
+    #pfp {
+        width: 20%;
+        height: auto;
+        border-radius: 50%;
+    }
+
+    .container {
+        @include flex(row, center);
+        width: 100%;
+        flex-wrap: wrap;
+
+        :hover {
+            transform: perspective(1000px) rotateY(20deg);
+            transition: 0.5s;
+        }
+    }
+
+    .project-card {
+        background-image: radial-gradient(circle 815px at 23.4% -21.8%, rgb(28, 28, 28) 0.2%, rgba(0, 0, 0, 1) 100.2%);
+        border-radius: 20px;
+        width: 21%;
+        height: 80vh;
+        padding: 1%;
+        margin: 1%;
+
+        p {
+            color: #686868;
+        }
+    }
+
+}
+
+#skills {
+    margin-top: 10%;
+
+    p {
+        border: solid 1px rgb(110, 110, 110);
+        border-style: dashed;
+        padding: 2%;
+    }
+}
+
+.button-54 {
+    font-size: 16px;
+    width: fit-content;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ffffffe7;
+    cursor: pointer;
+    border: 3px solid;
+    padding: 0.25em 0.5em;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    margin: 5px;
+
+    &:hover {
+        color: rgb(189, 189, 189);
+    }
+
+    &:active {
+        box-shadow: 0px 0px 0px 0px;
+        top: 5px;
+        left: 5px;
+    }
+}
+
+
+#profiles {
+    a {
+        img {
+            height: 50px;
+            width: 50px;
+            margin-left: 50px;
+            border-radius: 10px;
+        }
+
+        border: solid 2px rgb(61, 61, 61);
+        border-style: dashed;
+        background-color: #ffffff;
+        width:150px;
+        padding: 2%;
+        margin: 1%;
+
+    }
+}
+
+$num-elements: 16;
+$radius: 500px;
+$element-size: 50px;
+$angle: 360/$num-elements;
+$rot: 0;
+
+@keyframes rotate {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.icon-cluster {
+    left: 50%;
+    top: 50%;
+    width: $radius;
+    height: $radius;
+    border-radius: 50%;
+    animation: rotate 10s infinite linear;
+
+}
+
+.icon-cluster img {
+    height: $element-size;
+    width: $element-size;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -($element-size/2);
+}
+
+@for $i from 1 through $num-elements {
+    .icon-cluster img:nth-child(#{$i}) {
+        transform: rotate($rot * 1deg) translate($radius/2) rotate($rot * -1deg);
+    }
+
+    $rot: $rot + $angle;
+}
+
+@keyframes cssAnimation_0 {
+    to {
+        transform: translate(0px, 20px);
+    }
+}
+
+@media (max-width: $breakpoint-tablet) {
+
+
+    body {
+        h1 {
+            text-transform: capitalize;
+            font-size: 50px;
+            font-weight: 100;
+            margin: 1% 0 2% 0;
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: 100;
+        }
+
+        p {
+            color: #ffffff;
+            font-size: 16 px;
+        }
+    }
+
+    header {
+        h1 {
+            margin: 10% 0 0 0;
+            font-size: 75px;
+        }
+    }
+
+    section {
+        @include flex(column);
+        margin: 0 0 10% 0;
+        min-height: 100vh;
+        max-height: fit-content;
+
+        /*:hover {
+            transform: perspective(1000px) rotateX(20deg);
+            transition: 0.5s;
+        }*/
+
+
+        #pfp {
+            width: 90%;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .container {
+            @include flex(column);
+
+            :hover {
+                transform: perspective(1000px) rotateY(20deg);
+                transition: 0.5s;
+            }
+        }
+
+        .project-card {
+            padding: 2%;
+            width: 95%;
+            height: fit-content;
+        }
+
+    }
+
+    .long_banner {
+        @include flex(column);
+
+        img {
+            width: 100%;
+            border-radius: 2%;
+            animation: cssAnimation_0 1571ms ease-in-out 4ms;
+        }
+
+    }
+
+    #skills {
+        .container {
+            @include flex(row);
+            flex-wrap: wrap;
+        }
+
+        p {
+            border: solid 1px rgb(110, 110, 110);
+            border-style: dashed;
+            padding: 15px;
+        }
+    }
+
+    #profiles {
+        .container {
+            @include flex(row);
+            flex-wrap: wrap;
+        }
+
+        a {
+            img {
+                height: 50px;
+                width: 50px;
+                margin-left: 50px;
+                border-radius: 10px;
+            }
+
+            border: solid 2px rgb(61, 61, 61);
+            border-style: dashed;
+            background-color: #ffffff;
+            width:40%;
+            padding: 2%;
+            margin: 1%;
+
+        }
+    }
+}
