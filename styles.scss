@@ -92,6 +92,15 @@ header {
         animation: cssAnimation_0 1571ms ease-in-out 4ms;
     }
 
+    a{
+        text-decoration: none;
+        font-size: 20px;
+        color: #686868;
+        &:hover{
+            color: #e7e7e7;
+        }
+    }
+
 }
 
 section {
@@ -187,7 +196,7 @@ section {
 
         border: solid 2px rgb(61, 61, 61);
         border-style: dashed;
-        background-color: #ffffff;
+        background-color: #06060676;
         width:150px;
         padding: 2%;
         margin: 1%;

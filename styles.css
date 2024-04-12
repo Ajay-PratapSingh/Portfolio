@@ -67,6 +67,14 @@ header h1 {
   border-radius: 2%;
   animation: cssAnimation_0 1571ms ease-in-out 4ms;
 }
+.long_banner a {
+  text-decoration: none;
+  font-size: 20px;
+  color: #686868;
+}
+.long_banner a:hover {
+  color: #e7e7e7;
+}
 
 section {
   display: flex;
@@ -149,7 +157,7 @@ section .project-card p {
 #profiles a {
   border: solid 2px rgb(61, 61, 61);
   border-style: dashed;
-  background-color: #ffffff;
+  background-color: rgba(6, 6, 6, 0.462745098);
   width: 150px;
   padding: 2%;
   margin: 1%;
