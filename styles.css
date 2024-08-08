@@ -126,6 +126,24 @@ section .project-card p {
   padding: 2%;
 }
 
+#contact {
+  margin-top: 0;
+}
+#contact a {
+  font-size: 2rem;
+  border: none;
+  text-decoration: none;
+  color: #e7e7e7;
+  margin-right: 20%;
+}
+#contact i {
+  margin: 0 20px 0 0;
+}
+#contact p {
+  font-size: 2rem;
+  margin-right: 20%;
+}
+
 .button-54 {
   font-size: 16px;
   width: -moz-fit-content;
