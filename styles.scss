@@ -31,16 +31,22 @@ $breakpoint-tablet: 768px;
     display: flex;
     flex-direction: $fd;
     align-items: $alignment;
+    border-radius: 20px;
+    padding: 2%;
+    margin-bottom: 1%;
 }
+
 
 body {
     @include scrollbars(10px, #2e2e2e, #444444);
     font: 100% $font-stack;
+    z-index: 2;
     color: $primary-color;
     background-color: #060606;
     color: #ffffff;
     margin: 0 0 0 0;
     padding: 0 4% 0 4%;
+    overflow-x: hidden;
 
     h1 {
         text-transform: capitalize;
@@ -67,9 +73,51 @@ header {
     height: 100vh;
 
     h1 {
-        margin: 10% 0 0 0;
+        text-shadow: 12px -1px 15px rgba(0,0,0,0.65);
+        z-index: 5;
+        margin: 5% 0 0 0;
+        top:0;
         font-size: 150px;
         width: 100%;
+    }
+}
+
+.organization_box {
+
+    background-image: radial-gradient(circle 815px at 23.4% -21.8%, rgb(28, 28, 28) 0.2%, rgba(0, 0, 0, 1) 100.2%);
+    border-radius: 20px;
+    padding:2%;
+    margin: 3% 0%;
+
+    img {
+        z-index: 3;
+        width:50%;
+        border-radius: 2%;
+    }
+
+    p {
+        font-size: 14px;
+        align-items: center;
+        color: #040404;
+    }
+
+
+    details {
+        width: 100%;
+        background-color: #212121;
+        margin-bottom: 20px;
+    }
+
+    details p {
+        padding: 20px;
+    }
+
+    summary {
+        padding: 20px;
+        background-color: #040404;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
     }
 }
 
@@ -79,7 +127,7 @@ header {
     background-image: radial-gradient(circle 815px at 23.4% -21.8%, rgba(9, 29, 85, 1) 0.2%, rgba(0, 0, 0, 1) 100.2%);
     border-radius: 20px;
     padding: 2%;
-    margin-bottom: 1%;
+    margin: 3% 0%;
 
     h2,
     p {
@@ -92,13 +140,18 @@ header {
         animation: cssAnimation_0 1571ms ease-in-out 4ms;
     }
 
-    a{
+    a {
         text-decoration: none;
         font-size: 20px;
         color: #686868;
-        &:hover{
+
+        &:hover {
             color: #e7e7e7;
         }
+    }
+
+    li{
+        padding: 2% 0%;
     }
 
 }
@@ -114,6 +167,27 @@ section {
         transition: 0.5s;
     }*/
 
+    @keyframes border-zoom {
+        0% { transform: scaleX(0); }
+        70% { transform: scaleX(.5); }
+        100% { transform: scaleX(1); }
+    }
+
+    h1 {
+        color: #fff;
+        &:after {
+          content: '';
+          border-bottom: 5px solid;
+          border-image: linear-gradient(to right, rgba(255,216,22,1), rgba(255,234,60,1)) 10;
+          display: block;
+          transform-origin: left;
+          width: 100%;
+        }
+        &:hover:after{
+            animation: border-zoom 0.5s linear forwards;
+          }
+    }
+
     #pfp {
         width: 20%;
         height: auto;
@@ -121,14 +195,11 @@ section {
     }
 
     .container {
-        @include flex(row, center);
+        @include flex(row);
         width: 100%;
+        padding: 0%;
+        margin: 0%;
         flex-wrap: wrap;
-
-        :hover {
-            transform: perspective(1000px) rotateY(20deg);
-            transition: 0.5s;
-        }
     }
 
     .project-card {
@@ -140,7 +211,13 @@ section {
         margin: 1%;
 
         p {
+            font-size: 14px;
             color: #686868;
+        }
+
+        :hover {
+            transform: perspective(1000px) rotateY(20deg);
+            transition: 0.5s;
         }
     }
 
@@ -166,10 +243,12 @@ section {
         color: #e7e7e7;
         margin-right: 20%;
     }
-    i{
+
+    i {
         margin: 0 20px 0 0;
     }
-    p{
+
+    p {
         font-size: 2rem;
         margin-right: 20%;
     }
@@ -224,9 +303,9 @@ section {
     }
 }
 
-$num-elements: 16;
-$radius: 500px;
-$element-size: 50px;
+$num-elements: 18;
+$radius: 2000px;
+$element-size: 150px;
 $angle: 360/$num-elements;
 $rot: 0;
 
@@ -237,13 +316,13 @@ $rot: 0;
 }
 
 .icon-cluster {
-    left: 50%;
-    top: 50%;
+    z-index: 1;
+    margin-left: 50%;
     width: $radius;
     height: $radius;
     border-radius: 50%;
-    animation: rotate 10s infinite linear;
-
+    animation: rotate 50s infinite linear;
+    opacity: 0.3;
 }
 
 .icon-cluster img {
@@ -257,7 +336,7 @@ $rot: 0;
 
 @for $i from 1 through $num-elements {
     .icon-cluster img:nth-child(#{$i}) {
-        transform: rotate($rot * 1deg) translate($radius/2) rotate($rot * -1deg);
+        transform: rotate($rot * 1deg) translate($radius/2) rotate($rot * 1deg);
     }
 
     $rot: $rot + $angle;
@@ -292,6 +371,7 @@ $rot: 0;
     }
 
     header {
+        z-index: 1;
         h1 {
             margin: 10% 0 0 0;
             font-size: 75px;
@@ -300,6 +380,7 @@ $rot: 0;
 
     section {
         @include flex(column);
+        z-index: 3;
         margin: 0 0 10% 0;
         min-height: 100vh;
         max-height: fit-content;
@@ -313,7 +394,9 @@ $rot: 0;
         #pfp {
             width: 90%;
             height: auto;
-            border-radius: 50%;
+            margin: auto;
+            border-radius:50%;
+            z-index: 3;
         }
 
         .container {
@@ -380,4 +463,242 @@ $rot: 0;
 
         }
     }
+
+    
+#contact {
+
+    height: 100vh;
+
+    a {
+        font-size: 1.4rem;
+        border: none;
+        text-decoration: none;
+        color: #e7e7e7;
+        margin-right: 0;
+    }
+
+    i {
+        margin: 0 10px 0 0;
+    }
+
+    p {
+        font-size: 1.4rem;
+        margin-right: 10%;
+    }
+}
+}
+
+
+:root {
+  --color-bg-a: rgb(0, 0, 0);
+  --color-bg-b: rgb(0, 0, 0);
+
+  --color-a: 18, 113, 255;
+  --color-b: 221, 74, 255;
+  --color-c: 100, 220, 255;
+  --color-d: 200, 50, 50;
+  --color-e: 180, 180, 50;
+
+  --color-interactive: 148, 100, 255;
+  --size: 80%;
+  --blend: hard-light;
+}
+
+
+.lava-container {
+  @include flex(column);
+  
+  height: 100vh;
+
+  position: relative;
+  overflow: hidden;
+
+  top: 0;
+  left: 0;
+
+  background: linear-gradient(40deg, var(--color-bg-a), var(--color-bg-b));
+}
+
+/* Using SVG for filtering, not for display */
+svg {
+  display: none;
+}
+
+.gradient-container {
+  /* This is where the magic happens */
+  filter: url(#goo) blur(40px);
+  width: 100%;
+  height: 100%;
+}
+
+.g1,
+.g2,
+.g3,
+.g4,
+.g5 {
+  position: absolute;
+  mix-blend-mode: var(--blend);
+}
+
+.g1 {
+  /* Gradient is visible only to 50%. Bubble is half transparent */
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-a), 0.8) 0,
+      rgba(var(--color-a), 0) 50%
+    )
+    no-repeat;
+
+  width: var(--size);
+  height: var(--size);
+
+  /* Place the bubble in the center of the container */
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+
+  transform-origin: center center;
+  animation: bounceV 30s ease infinite;
+
+  opacity: 1;
+}
+
+.g2 {
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-b), 0.8) 0,
+      rgba(var(--color-b), 0) 50%
+    )
+    no-repeat;
+
+  width: var(--size);
+  height: var(--size);
+
+  /* Place the bubble relative to the center of the container */
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+
+  opacity: 1;
+}
+
+.g3 {
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-c), 0.8) 0,
+      rgba(var(--color-c), 0) 50%
+    )
+    no-repeat;
+
+  width: var(--size);
+  height: var(--size);
+
+  /* Place the bubble relative to the center of the container */
+  top: calc(50% - var(--size) / 2 + 200px);
+  left: calc(50% - var(--size) / 2 - 500px);
+
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+
+  opacity: 1;
+}
+
+.g4 {
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-d), 0.8) 0,
+      rgba(var(--color-d), 0) 50%
+    )
+    no-repeat;
+
+  width: var(--size);
+  height: var(--size);
+
+  /* Place the bubble relative to the center of the container */
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+
+  transform-origin: calc(50% - 200px);
+  animation: bounceH 40s ease infinite;
+
+  opacity: 0.7;
+}
+
+.g5 {
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-e), 0.8) 0,
+      rgba(var(--color-e), 0) 50%
+    )
+    no-repeat;
+
+  width: calc(var(--size) * 2);
+  height: calc(var(--size) * 2);
+
+  /* Place the bubble relative to the center of the container */
+  top: calc(50% - var(--size));
+  left: calc(50% - var(--size));
+
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 20s ease infinite;
+
+  opacity: 1;
+}
+
+.interactive {
+  position: absolute;
+
+  background: radial-gradient(
+      circle at center,
+      rgba(var(--color-interactive), 0.8) 0,
+      rgba(var(--color-interactive), 0) 50%
+    )
+    no-repeat;
+
+  width: 100%;
+  height: 100%;
+
+  mix-blend-mode: var(--blend);
+
+  top: -50%;
+  left: -50%;
+
+  opacity: 0.7;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounceV {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes bounceH {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
 }

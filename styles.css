@@ -1,10 +1,12 @@
 body {
   font: 100% Helvetica, sans-serif;
+  z-index: 2;
   color: #000000;
   background-color: #060606;
   color: #ffffff;
   margin: 0 0 0 0;
   padding: 0 4% 0 4%;
+  overflow-x: hidden;
 }
 body::-webkit-scrollbar {
   width: 10px;
@@ -39,24 +41,65 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  border-radius: 20px;
+  padding: 2%;
+  margin-bottom: 1%;
   height: 100vh;
 }
 header h1 {
-  margin: 10% 0 0 0;
+  text-shadow: 12px -1px 15px rgba(0, 0, 0, 0.65);
+  z-index: 5;
+  margin: 5% 0 0 0;
+  top: 0;
   font-size: 150px;
   width: 100%;
+}
+
+.organization_box {
+  background-image: radial-gradient(circle 815px at 23.4% -21.8%, rgb(28, 28, 28) 0.2%, rgb(0, 0, 0) 100.2%);
+  border-radius: 20px;
+  padding: 2%;
+  margin: 3% 0%;
+}
+.organization_box img {
+  z-index: 3;
+  width: 50%;
+  border-radius: 2%;
+}
+.organization_box p {
+  font-size: 14px;
+  align-items: center;
+  color: #040404;
+}
+.organization_box details {
+  width: 100%;
+  background-color: #212121;
+  margin-bottom: 20px;
+}
+.organization_box details p {
+  padding: 20px;
+}
+.organization_box summary {
+  padding: 20px;
+  background-color: #040404;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
 .long_banner {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  border-radius: 20px;
+  padding: 2%;
+  margin-bottom: 1%;
   height: -moz-fit-content;
   height: fit-content;
   background-image: radial-gradient(circle 815px at 23.4% -21.8%, rgb(9, 29, 85) 0.2%, rgb(0, 0, 0) 100.2%);
   border-radius: 20px;
   padding: 2%;
-  margin-bottom: 1%;
+  margin: 3% 0%;
 }
 .long_banner h2,
 .long_banner p {
@@ -75,11 +118,17 @@ header h1 {
 .long_banner a:hover {
   color: #e7e7e7;
 }
+.long_banner li {
+  padding: 2% 0%;
+}
 
 section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  border-radius: 20px;
+  padding: 2%;
+  margin-bottom: 1%;
   margin: 0 0 1% 0;
   min-height: 100vh;
   max-height: -moz-fit-content;
@@ -89,6 +138,32 @@ section {
       transition: 0.5s;
   }*/
 }
+@keyframes border-zoom {
+  0% {
+    transform: scaleX(0);
+  }
+  70% {
+    transform: scaleX(0.5);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+section h1 {
+  color: #fff;
+}
+section h1:after {
+  content: "";
+  border-bottom: 5px solid;
+  -o-border-image: linear-gradient(to right, rgb(255, 216, 22), rgb(255, 234, 60)) 10;
+     border-image: linear-gradient(to right, rgb(255, 216, 22), rgb(255, 234, 60)) 10;
+  display: block;
+  transform-origin: left;
+  width: 100%;
+}
+section h1:hover:after {
+  animation: border-zoom 0.5s linear forwards;
+}
 section #pfp {
   width: 20%;
   height: auto;
@@ -97,13 +172,14 @@ section #pfp {
 section .container {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
+  border-radius: 20px;
+  padding: 2%;
+  margin-bottom: 1%;
   width: 100%;
+  padding: 0%;
+  margin: 0%;
   flex-wrap: wrap;
-}
-section .container :hover {
-  transform: perspective(1000px) rotateY(20deg);
-  transition: 0.5s;
 }
 section .project-card {
   background-image: radial-gradient(circle 815px at 23.4% -21.8%, rgb(28, 28, 28) 0.2%, rgb(0, 0, 0) 100.2%);
@@ -114,7 +190,12 @@ section .project-card {
   margin: 1%;
 }
 section .project-card p {
+  font-size: 14px;
   color: #686868;
+}
+section .project-card :hover {
+  transform: perspective(1000px) rotateY(20deg);
+  transition: 0.5s;
 }
 
 #skills {
@@ -193,85 +274,94 @@ section .project-card p {
   }
 }
 .icon-cluster {
-  left: 50%;
-  top: 50%;
-  width: 500px;
-  height: 500px;
+  z-index: 1;
+  margin-left: 50%;
+  width: 2000px;
+  height: 2000px;
   border-radius: 50%;
-  animation: rotate 10s infinite linear;
+  animation: rotate 50s infinite linear;
+  opacity: 0.3;
 }
 
 .icon-cluster img {
-  height: 50px;
-  width: 50px;
+  height: 150px;
+  width: 150px;
   position: absolute;
   left: 50%;
   top: 50%;
-  margin: -25px;
+  margin: -75px;
 }
 
 .icon-cluster img:nth-child(1) {
-  transform: rotate(0deg) translate(250px) rotate(0deg);
+  transform: rotate(0deg) translate(1000px) rotate(0deg);
 }
 
 .icon-cluster img:nth-child(2) {
-  transform: rotate(22.5deg) translate(250px) rotate(-22.5deg);
+  transform: rotate(20deg) translate(1000px) rotate(20deg);
 }
 
 .icon-cluster img:nth-child(3) {
-  transform: rotate(45deg) translate(250px) rotate(-45deg);
+  transform: rotate(40deg) translate(1000px) rotate(40deg);
 }
 
 .icon-cluster img:nth-child(4) {
-  transform: rotate(67.5deg) translate(250px) rotate(-67.5deg);
+  transform: rotate(60deg) translate(1000px) rotate(60deg);
 }
 
 .icon-cluster img:nth-child(5) {
-  transform: rotate(90deg) translate(250px) rotate(-90deg);
+  transform: rotate(80deg) translate(1000px) rotate(80deg);
 }
 
 .icon-cluster img:nth-child(6) {
-  transform: rotate(112.5deg) translate(250px) rotate(-112.5deg);
+  transform: rotate(100deg) translate(1000px) rotate(100deg);
 }
 
 .icon-cluster img:nth-child(7) {
-  transform: rotate(135deg) translate(250px) rotate(-135deg);
+  transform: rotate(120deg) translate(1000px) rotate(120deg);
 }
 
 .icon-cluster img:nth-child(8) {
-  transform: rotate(157.5deg) translate(250px) rotate(-157.5deg);
+  transform: rotate(140deg) translate(1000px) rotate(140deg);
 }
 
 .icon-cluster img:nth-child(9) {
-  transform: rotate(180deg) translate(250px) rotate(-180deg);
+  transform: rotate(160deg) translate(1000px) rotate(160deg);
 }
 
 .icon-cluster img:nth-child(10) {
-  transform: rotate(202.5deg) translate(250px) rotate(-202.5deg);
+  transform: rotate(180deg) translate(1000px) rotate(180deg);
 }
 
 .icon-cluster img:nth-child(11) {
-  transform: rotate(225deg) translate(250px) rotate(-225deg);
+  transform: rotate(200deg) translate(1000px) rotate(200deg);
 }
 
 .icon-cluster img:nth-child(12) {
-  transform: rotate(247.5deg) translate(250px) rotate(-247.5deg);
+  transform: rotate(220deg) translate(1000px) rotate(220deg);
 }
 
 .icon-cluster img:nth-child(13) {
-  transform: rotate(270deg) translate(250px) rotate(-270deg);
+  transform: rotate(240deg) translate(1000px) rotate(240deg);
 }
 
 .icon-cluster img:nth-child(14) {
-  transform: rotate(292.5deg) translate(250px) rotate(-292.5deg);
+  transform: rotate(260deg) translate(1000px) rotate(260deg);
 }
 
 .icon-cluster img:nth-child(15) {
-  transform: rotate(315deg) translate(250px) rotate(-315deg);
+  transform: rotate(280deg) translate(1000px) rotate(280deg);
 }
 
 .icon-cluster img:nth-child(16) {
-  transform: rotate(337.5deg) translate(250px) rotate(-337.5deg);
+  transform: rotate(300deg) translate(1000px) rotate(300deg);
+}
+
+.icon-cluster img:nth-child(17) {
+  transform: rotate(320deg) translate(1000px) rotate(320deg);
+}
+
+.icon-cluster img:nth-child(18) {
+  transform: rotate(340deg) translate(1000px) rotate(340deg);
 }
 
 @keyframes cssAnimation_0 {
@@ -294,6 +384,9 @@ section .project-card p {
     color: #ffffff;
     font-size: 16 px;
   }
+  header {
+    z-index: 1;
+  }
   header h1 {
     margin: 10% 0 0 0;
     font-size: 75px;
@@ -302,6 +395,10 @@ section .project-card p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-radius: 20px;
+    padding: 2%;
+    margin-bottom: 1%;
+    z-index: 3;
     margin: 0 0 10% 0;
     min-height: 100vh;
     max-height: -moz-fit-content;
@@ -314,12 +411,17 @@ section .project-card p {
   section #pfp {
     width: 90%;
     height: auto;
+    margin: auto;
     border-radius: 50%;
+    z-index: 3;
   }
   section .container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-radius: 20px;
+    padding: 2%;
+    margin-bottom: 1%;
   }
   section .container :hover {
     transform: perspective(1000px) rotateY(20deg);
@@ -335,6 +437,9 @@ section .project-card p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-radius: 20px;
+    padding: 2%;
+    margin-bottom: 1%;
   }
   .long_banner img {
     width: 100%;
@@ -345,6 +450,9 @@ section .project-card p {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    border-radius: 20px;
+    padding: 2%;
+    margin-bottom: 1%;
     flex-wrap: wrap;
   }
   #skills p {
@@ -356,6 +464,9 @@ section .project-card p {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    border-radius: 20px;
+    padding: 2%;
+    margin-bottom: 1%;
     flex-wrap: wrap;
   }
   #profiles a {
@@ -371,5 +482,176 @@ section .project-card p {
     width: 50px;
     margin-left: 50px;
     border-radius: 10px;
+  }
+  #contact {
+    height: 100vh;
+  }
+  #contact a {
+    font-size: 1.4rem;
+    border: none;
+    text-decoration: none;
+    color: #e7e7e7;
+    margin-right: 0;
+  }
+  #contact i {
+    margin: 0 10px 0 0;
+  }
+  #contact p {
+    font-size: 1.4rem;
+    margin-right: 10%;
+  }
+}
+:root {
+  --color-bg-a: rgb(0, 0, 0);
+  --color-bg-b: rgb(0, 0, 0);
+  --color-a: 18, 113, 255;
+  --color-b: 221, 74, 255;
+  --color-c: 100, 220, 255;
+  --color-d: 200, 50, 50;
+  --color-e: 180, 180, 50;
+  --color-interactive: 148, 100, 255;
+  --size: 80%;
+  --blend: hard-light;
+}
+
+.lava-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 20px;
+  padding: 2%;
+  margin-bottom: 1%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background: linear-gradient(40deg, var(--color-bg-a), var(--color-bg-b));
+}
+
+/* Using SVG for filtering, not for display */
+svg {
+  display: none;
+}
+
+.gradient-container {
+  /* This is where the magic happens */
+  filter: url(#goo) blur(40px);
+  width: 100%;
+  height: 100%;
+}
+
+.g1,
+.g2,
+.g3,
+.g4,
+.g5 {
+  position: absolute;
+  mix-blend-mode: var(--blend);
+}
+
+.g1 {
+  /* Gradient is visible only to 50%. Bubble is half transparent */
+  background: radial-gradient(circle at center, rgba(var(--color-a), 0.8) 0, rgba(var(--color-a), 0) 50%) no-repeat;
+  width: var(--size);
+  height: var(--size);
+  /* Place the bubble in the center of the container */
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+  transform-origin: center center;
+  animation: bounceV 30s ease infinite;
+  opacity: 1;
+}
+
+.g2 {
+  background: radial-gradient(circle at center, rgba(var(--color-b), 0.8) 0, rgba(var(--color-b), 0) 50%) no-repeat;
+  width: var(--size);
+  height: var(--size);
+  /* Place the bubble relative to the center of the container */
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+  transform-origin: calc(50% - 400px);
+  animation: moveInCircle 20s reverse infinite;
+  opacity: 1;
+}
+
+.g3 {
+  background: radial-gradient(circle at center, rgba(var(--color-c), 0.8) 0, rgba(var(--color-c), 0) 50%) no-repeat;
+  width: var(--size);
+  height: var(--size);
+  /* Place the bubble relative to the center of the container */
+  top: calc(50% - var(--size) / 2 + 200px);
+  left: calc(50% - var(--size) / 2 - 500px);
+  transform-origin: calc(50% + 400px);
+  animation: moveInCircle 40s linear infinite;
+  opacity: 1;
+}
+
+.g4 {
+  background: radial-gradient(circle at center, rgba(var(--color-d), 0.8) 0, rgba(var(--color-d), 0) 50%) no-repeat;
+  width: var(--size);
+  height: var(--size);
+  /* Place the bubble relative to the center of the container */
+  top: calc(50% - var(--size) / 2);
+  left: calc(50% - var(--size) / 2);
+  transform-origin: calc(50% - 200px);
+  animation: bounceH 40s ease infinite;
+  opacity: 0.7;
+}
+
+.g5 {
+  background: radial-gradient(circle at center, rgba(var(--color-e), 0.8) 0, rgba(var(--color-e), 0) 50%) no-repeat;
+  width: calc(var(--size) * 2);
+  height: calc(var(--size) * 2);
+  /* Place the bubble relative to the center of the container */
+  top: calc(50% - var(--size));
+  left: calc(50% - var(--size));
+  transform-origin: calc(50% - 800px) calc(50% + 200px);
+  animation: moveInCircle 20s ease infinite;
+  opacity: 1;
+}
+
+.interactive {
+  position: absolute;
+  background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: var(--blend);
+  top: -50%;
+  left: -50%;
+  opacity: 0.7;
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes bounceV {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+@keyframes bounceH {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
   }
 }/*# sourceMappingURL=styles.css.map */
