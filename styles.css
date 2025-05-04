@@ -370,6 +370,9 @@ section .project-card :hover {
   }
 }
 @media (max-width: 768px) {
+  body {
+    scroll-snap-type: y mandatory;
+  }
   body h1 {
     text-transform: capitalize;
     font-size: 50px;

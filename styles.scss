@@ -352,6 +352,7 @@ $rot: 0;
 
 
     body {
+        scroll-snap-type: y mandatory;
         h1 {
             text-transform: capitalize;
             font-size: 50px;
